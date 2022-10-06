@@ -1,0 +1,27 @@
+<div class="form-container">
+  <h2>Iniciar Sesion</h2>
+  <div>
+    <form class="form" (ngSubmit)="iniciarSesion()">
+      <!-- <div>
+        <label>Id: </label>
+        <input type="number" id="id" [(ngModel)]="credenciales.id" name="id">
+      </div> -->
+
+      <div>
+        <label>Nombre de usuario: </label>
+        <input type="email" id="email" [(ngModel)]="credenciales.email" name="email">
+      </div>
+
+      <div>
+        <label>Contraseña: </label>
+        <input type="password" id="password" [(ngModel)]="credenciales.password" name="password">
+      </div>
+
+      <button>Entrar</button>
+
+      <p>¿No tienes una? <span><a href="registrar-usuario">¡Registrate!</a></span></p>
+
+    </form>
+  </div>
+
+</div>

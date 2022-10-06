@@ -1,0 +1,111 @@
+.title, .letter-s, .letter-t {
+    font-family: 'Passions Conflict', cursive;
+    margin: 0;
+    padding: 12px 0px;
+    color: #f1c513;
+}
+
+.letter-s, .letter-t {
+    color: #ffe667;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f1f1f;
+    height: 35vh;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link {
+    padding: 8px 0px;
+    color: #f0f8ff;
+    position: relative;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    background-color: #c7ff1e;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 0px;
+    transition: .2s all ease;
+}
+
+.link:hover {
+    color: #c7ff1e;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.paragraph {
+    margin: 0;
+    padding: 8px 0px;
+    color: #f0f8ff;
+    font-size: 1.25em;
+}
+
+.container {
+    background-color: #f0f0f0;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 0px;
+    min-height: 50vh;
+}
+
+footer {
+    background-color: #1f1f1f;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(min-width:850px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 15vh;
+    }
+
+    .navbar {
+        flex-direction: row;
+    }
+
+    .link {
+        margin: 0px 12px;
+    }
+
+    .container {
+        min-height: 70vh;
+    }
+
+    footer {
+        height: 15vh;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .paragraph {
+        margin-left: 30px;
+    }
+
+    .title {
+        letter-spacing: 4px;
+    }
+}
