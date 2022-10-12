@@ -1,12 +1,9 @@
-.title, .letter-s, .letter-t {
+.title {
     font-family: 'Passions Conflict', cursive;
     margin: 0;
     padding: 12px 0px;
-    color: #f1c513;
-}
-
-.letter-s, .letter-t {
-    color: #ffe667;
+    color: var(--title-color);
+    background: var(--main-color);
 }
 
 .nav-container {
@@ -14,8 +11,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #1f1f1f;
+    background-color: var(--main-color);
     height: 35vh;
+    position: relative;
+    -webkit-box-shadow: 5px 26px 50px 18px #00000040;
+    box-shadow: 5px 26px 50px 18px #00000040;
 }
 
 .navbar {
@@ -26,14 +26,14 @@
 
 .link {
     padding: 8px 0px;
-    color: #f0f8ff;
+    color: var(--text-color);
     position: relative;
 }
 
 .link::after {
     content: "";
     position: absolute;
-    background-color: #c7ff1e;
+    background-color: var(--link-color);
     height: 3px;
     width: 0;
     left: 0;
@@ -42,7 +42,7 @@
 }
 
 .link:hover {
-    color: #c7ff1e;
+    color: var(--link-color);
 }
 
 .link:hover::after {
@@ -57,7 +57,7 @@
 }
 
 .container {
-    background-color: #f0f0f0;
+    background-color: var(--side-color);
     max-width: 1400px;
     margin: auto;
     display: flex;
@@ -68,7 +68,7 @@
 }
 
 footer {
-    background-color: #1f1f1f;
+    background-color: var(--main-color);
     height: 25vh;
     display: flex;
     flex-direction: column;
@@ -107,5 +107,10 @@ footer {
 
     .title {
         letter-spacing: 4px;
+        transition: .1s all ease-in-out;
+    }
+
+    .title:hover {
+        text-shadow: 2px 2px 0px #000000, 5px 4px 0px #000000;
     }
 }

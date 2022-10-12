@@ -1,7 +1,6 @@
 table {
     min-width: 85vw;
     max-width: 90vw;
-    min-height: 450px;
     border-collapse: collapse;
 }
 
@@ -25,7 +24,7 @@ tr {
 }
 
 table tr:nth-child(odd) {
-    background-color: #e4e4e4;
+    background-color: #0000003b;
 }
 
 @media(min-width:850px) {

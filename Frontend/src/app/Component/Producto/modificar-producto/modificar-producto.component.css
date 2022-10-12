@@ -27,6 +27,7 @@ h3 {
 
 input:focus {
     box-shadow: 0 0 10px #0000002a;
+    background-color: #0000002a;
 }
 
 button {

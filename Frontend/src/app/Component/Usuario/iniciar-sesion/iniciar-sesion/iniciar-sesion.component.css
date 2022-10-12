@@ -1,5 +1,5 @@
 span > a {
-    color: #1e90ff;
+    color: #ff8661;
     font-size: 1.25em;
 }
 
@@ -32,6 +32,7 @@ h2, label, input, button, p {
 
 input:focus {
     box-shadow: 0 0 10px #0000002a;
+    background-color: #0000002a;
 }
 
 button {
