@@ -2,15 +2,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Source+Sans+Pro&display=swap');
 
+/* colors */
+
+:root {
+    --text-color: #eeeeee;
+    --title-color: #ff5b29;
+    --link-color: #ff8661;
+    --main-color: #222831;
+    --side-color: #393e46;
+}
+
+/* initialize the page */
+
 * {
     box-sizing: border-box;
     font-family: 'Source Sans Pro', sans-serif;
+    color: var(--text-color);
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: var(--side-color);
     overflow-x: hidden;
 }
 
@@ -74,6 +87,7 @@ input {
     text-align: center;
     padding: 5px 12px;
     font-weight: bold;
+    background-color: transparent;
 }
 
 button {
