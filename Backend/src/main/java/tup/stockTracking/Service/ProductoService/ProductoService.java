@@ -11,9 +11,13 @@ public interface ProductoService {
     public Producto getProductById(Long id);
 
     /* prubas */
-    public Categoria getCategoria(Long id);
+    public Categoria getCategoriaById(Long id);
 
-    public Unidad getUnidad(Long id);
+    public List<Categoria> getAllCategoria();
+
+    public Unidad getUnidadById(Long id);
+
+    public List<Unidad> getAllUnidad();
 
     /* pruebas */
     

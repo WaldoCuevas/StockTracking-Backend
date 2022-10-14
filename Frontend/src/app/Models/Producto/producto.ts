@@ -1,7 +1,19 @@
+export class Unidad {
+  id: number;
+  nombre_unidad: String;
+}
+
+export class Categoria {
+  id: number;
+  nombre_categoria: String;
+}
+
 export class Producto {
   id: number;
   nombre: String;
   descripcion: String;
   cantidad: number;
-  unidad: String;
+
+  unidad: Unidad;
+  categoria: Categoria;
 }

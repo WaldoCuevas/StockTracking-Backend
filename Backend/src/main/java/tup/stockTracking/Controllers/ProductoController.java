@@ -28,40 +28,53 @@ public class ProductoController {
     @Autowired
     private ProductoServiceImp ProductService;
 
-    @GetMapping("/productos/producto/{id}")
+    //Controlador para obtener 1 solo elemento
+
+    @GetMapping("/productos/{id}")
     public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {
 
         return ResponseEntity.ok().body(this.ProductService.getProductById(id));
     }
 
-    /* pruebas */
+    @GetMapping("/categoria/{id}")
+    public ResponseEntity<Categoria> obtenerCategoriaPorId(@PathVariable Long id) {
 
-    @GetMapping("/productos/unidad/{id}")
+        return ResponseEntity.ok().body(this.ProductService.getCategoriaById(id));
+    }
+
+    @GetMapping("/unidad/{id}")
     public ResponseEntity<Unidad> obtenerUnidadPorId(@PathVariable Long id) {
 
-        return ResponseEntity.ok().body(this.ProductService.getUnidad(id));
+        return ResponseEntity.ok().body(this.ProductService.getUnidadById(id));
     }
 
-    @GetMapping("/productos/categoria/{id}")
-    public ResponseEntity<Categoria> obtenerCategoriaoPorId(@PathVariable Long id) {
-
-        return ResponseEntity.ok().body(this.ProductService.getCategoria(id));
-    }
-
-    /* pruebas */
-
+    //Controlador para obtener todos los elementos
 
     @GetMapping("/productos")
-    public List<Producto> obtenerTodosLosProductos() {
-        return this.ProductService.getAllProduct();
+    public ResponseEntity<List<Producto>> obtenerTodosLosProductos() {
+        return ResponseEntity.ok().body(this.ProductService.getAllProduct());
     }
 
+    @GetMapping("/productos/categorias")
+    public ResponseEntity<List<Categoria>> obtenerTodasLasCategorias() {
+        return ResponseEntity.ok().body(this.ProductService.getAllCategoria());
+    }
+
+    @GetMapping("/productos/unidades")
+    public ResponseEntity<List<Unidad>> obtenerTodasLasUnidad() {
+        return ResponseEntity.ok().body(this.ProductService.getAllUnidad());
+    }
+
+    //Controladores para los las funciones CRUD
+
+    // CREATE
     @PostMapping("/productos")
     public ResponseEntity<Producto> GuardarProductos(@RequestBody Producto producto) {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(this.ProductService.saveProduct(producto));
     }
 
+    // UPDATE
     @PutMapping("/productos/{id}")
     public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto detalleProducto) {
 
@@ -69,6 +82,7 @@ public class ProductoController {
         return ResponseEntity.ok(productoActualizado);
     }
 
+    // DELETE
     @DeleteMapping("/productos/{id}")
     public ResponseEntity<Producto> eliminarProducto(@PathVariable Long id) {
 

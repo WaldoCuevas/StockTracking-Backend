@@ -9,13 +9,23 @@ import tup.stockTracking.Exceptions.ResourceNotFoundException;
 import tup.stockTracking.Models.Categoria;
 import tup.stockTracking.Models.Producto;
 import tup.stockTracking.Models.Unidad;
+import tup.stockTracking.Repository.CategoriaRepository;
 import tup.stockTracking.Repository.ProductoRepository;
+import tup.stockTracking.Repository.UnidadRepository;
 
 @Service
 public class ProductoServiceImp implements ProductoService {
 
     @Autowired
     private ProductoRepository productRepository;
+
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private UnidadRepository unidadRepository;
+
+    // Metodos para obtener solo 1 elemento
 
     @Override
     public Producto getProductById(Long id) {
@@ -25,21 +35,21 @@ public class ProductoServiceImp implements ProductoService {
         return producto;
     }
 
-    /*pruebas */
     @Override
-    public Categoria getCategoria(Long id) {
-        Producto producto = getProductById(id);
-        Categoria categoria = producto.getCategoria();
+    public Categoria getCategoriaById(Long id) {
+        Categoria categoria = categoriaRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe la categoria con el id: " + id));
         return categoria;
     }
 
     @Override
-    public Unidad getUnidad(Long id) {
-        Producto producto = getProductById(id);
-        Unidad unidad = producto.getUnidad();
+    public Unidad getUnidadById(Long id) {
+        Unidad unidad = unidadRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe la unidad de con el id: " + id));
         return unidad;
     }
-    /*pruebas */
+
+    // Metodos para obtener todos los elementos
 
     @Override
     public List<Producto> getAllProduct() {
@@ -47,12 +57,28 @@ public class ProductoServiceImp implements ProductoService {
     }
 
     @Override
+    public List<Categoria> getAllCategoria() {
+
+        return categoriaRepository.findAll();
+    }
+
+    @Override
+    public List<Unidad> getAllUnidad() {
+
+        return unidadRepository.findAll();
+    }
+
+    // Metodos CRUD
+
+    // CREATE
+    @Override
     public Producto saveProduct(Producto producto) {
-        producto.setCategoria(getCategoria( (long) producto.getCategoria().getId())); //(long) 2.0
-        producto.setUnidad(getUnidad( (long)producto.getUnidad().getId())); //(long)3.0)
+        producto.setCategoria(getCategoriaById((long) producto.getCategoria().getId())); // (long) 2.0
+        producto.setUnidad(getUnidadById((long) producto.getUnidad().getId())); // (long)3.0)
         return productRepository.save(producto);
     }
 
+    // UPDATE
     @Override
     public Producto updateProduct(Producto productoModificado, Long id) {
 
@@ -70,6 +96,7 @@ public class ProductoServiceImp implements ProductoService {
         return productoActualizado;
     }
 
+    // DELETE
     @Override
     public void deleteProduct(Long id) {
 
@@ -77,7 +104,5 @@ public class ProductoServiceImp implements ProductoService {
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el producto con el id: " + id));
         productRepository.delete(producto);
     }
-
-
 
 }

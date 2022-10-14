@@ -27,7 +27,7 @@ public class Unidad {
     
     @Id
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "nombre_unidad")
     private String nombre_unidad; //nombre del tipo de unidad

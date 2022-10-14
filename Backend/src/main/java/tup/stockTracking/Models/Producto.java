@@ -3,12 +3,16 @@ package tup.stockTracking.Models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 // import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -29,7 +33,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Nombre")
+    @Column(name = "Nombre")   
     private String nombre;
 
     @Column(name = "Descripcion")
@@ -38,7 +42,7 @@ public class Producto {
     @Column(name = "Cantidad")
     private float cantidad;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)  
     @JoinColumn(name = "id_categoria")
     //@JsonBackReference
     //@JsonManagedReference
