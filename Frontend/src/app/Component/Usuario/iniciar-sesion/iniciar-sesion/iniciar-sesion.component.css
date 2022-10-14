@@ -1,5 +1,5 @@
 span > a {
-    color: #ff8661;
+    color: #27acf4;
     font-size: 1.25em;
 }
 
@@ -26,8 +26,19 @@ span > a:hover {
     align-items: center;
 }
 
-h2, label, input, button, p {
+h2, button, p {
     margin: 8px 0;
+}
+
+input {
+    margin: 25px 0px;
+    padding: 20px 15px;
+    color: var(--text-color);
+    border-radius: 0;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    text-align: left;
 }
 
 input:focus {
@@ -36,13 +47,13 @@ input:focus {
 }
 
 button {
-    background-color: transparent;
-    border: 3px solid #0000002a;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+    border-radius: 30px;
+    border: transparent;
+    width: 200px;
     transition: .2s all ease;
 }
 
 button:hover {
-    border: 3px solid #0e0e0d;
+    background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
 }

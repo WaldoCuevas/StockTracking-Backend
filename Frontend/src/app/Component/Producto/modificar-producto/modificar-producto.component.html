@@ -2,18 +2,15 @@
   <h3>Modificar un Producto</h3>
   <form class="form" (ngSubmit)="onSubmit()">
     <div>
-      <label>Nombre: </label>
-      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" />
+      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" placeholder="Nombre"/>
     </div>
 
     <div>
-      <label>Descripcion: </label>
-      <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" />
+      <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" placeholder="Descripción"/>
     </div>
 
     <div>
-      <label>Cantidad: </label>
-      <input type="number" id="cantidad" [(ngModel)]="producto.cantidad" name="cantidad" />
+      <input type="number" id="cantidad" [(ngModel)]="producto.cantidad" name="cantidad" placeholder="Cantidad"/>
     </div>
 
     <div>

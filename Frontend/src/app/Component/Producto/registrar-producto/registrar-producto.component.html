@@ -2,19 +2,18 @@
   <h3>Registrar un Producto</h3>
   <form class="form" (ngSubmit)="onSubmit()">
     <div>
-      <label for="nombre">Nombre: </label>
-      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" />
+      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" placeholder="Nombre" />
     </div>
 
     <div>
-      <label for="descripcion">Descripcion: </label>
-      <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" />
+      <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion"
+        placeholder="Descripcion" />
     </div>
 
     <div>
-      <label for="cantidad">Cantidad: </label>
-      <input type="number" id="cantidad" [(ngModel)]="producto.cantidad" name="cantidad" />
+      <input type="number" id="cantidad" [(ngModel)]="producto.cantidad" name="cantidad" placeholder="Cantidad" />
     </div>
+
 
     <div>
       <label for="unidad">Unidad: </label>
@@ -32,8 +31,8 @@
         <option *ngFor="let categoria of this.categorias" [ngValue]="categoria">
           {{ categoria.nombre_categoria }} </option>
       </select>
-
     </div>
+
     <button>Guardar</button>
   </form>
 </div>
