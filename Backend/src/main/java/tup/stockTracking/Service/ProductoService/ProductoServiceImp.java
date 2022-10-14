@@ -102,6 +102,8 @@ public class ProductoServiceImp implements ProductoService {
 
         Producto producto = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el producto con el id: " + id));
+        producto.setCategoria(null);
+        producto.setUnidad(null);
         productRepository.delete(producto);
     }
 
