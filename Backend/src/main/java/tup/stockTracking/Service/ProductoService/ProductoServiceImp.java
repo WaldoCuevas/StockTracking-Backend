@@ -89,6 +89,8 @@ public class ProductoServiceImp implements ProductoService {
         producto.setNombre(productoModificado.getNombre());
         producto.setDescripcion(productoModificado.getDescripcion());
         producto.setCantidad(productoModificado.getCantidad());
+        producto.setEstado(productoModificado.getEstado());
+
         producto.setUnidad(productoModificado.getUnidad());
         producto.setCategoria(productoModificado.getCategoria());
 
@@ -100,11 +102,38 @@ public class ProductoServiceImp implements ProductoService {
     @Override
     public void deleteProduct(Long id) {
 
+        boolean estado = true;
+
         Producto producto = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el producto con el id: " + id));
+
         producto.setCategoria(null);
         producto.setUnidad(null);
         productRepository.delete(producto);
+
+    }
+
+    @Override
+    public Boolean EstadoProducto(Long id) {
+
+        Producto producto = productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el producto con el id: " + id));
+
+        if (producto.getEstado()) {
+
+            producto.setEstado(false);
+
+            productRepository.save(producto);
+
+            return producto.getEstado();
+
+        }
+
+        producto.setEstado(true);
+
+        productRepository.save(producto);
+
+        return producto.getEstado();
     }
 
 }

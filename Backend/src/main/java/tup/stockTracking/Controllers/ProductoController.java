@@ -2,6 +2,7 @@ package tup.stockTracking.Controllers;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,9 +87,13 @@ public class ProductoController {
     @DeleteMapping("/productos/{id}")
     public ResponseEntity<Producto> eliminarProducto(@PathVariable Long id) {
 
-        this.ProductService.deleteProduct(id);
-        return ResponseEntity.ok().build();
+            if (ProductService.EstadoProducto(id)){
+            return ResponseEntity.ok().build();
+            }
+            
+            return ResponseEntity.ok().build();
+        }
+        
 
-    }
 
 }

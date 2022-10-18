@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 // import com.fasterxml.jackson.annotation.JsonBackReference;
- import com.fasterxml.jackson.annotation.JsonManagedReference;
+//import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +38,9 @@ public class Producto {
     @Column(name = "Cantidad")
     private float cantidad;
 
+    @Column(name = "estado")
+    private Boolean estado;
+
     @ManyToOne(cascade = CascadeType.ALL)  
     @JoinColumn(name = "id_categoria")
     //@JsonBackReference
@@ -50,4 +53,10 @@ public class Producto {
     //@JsonManagedReference
     private Unidad unidad;
 
+
+    //La relación Hibernate @OneToMany provoca un bucle infinito o entradas vacías en el resultado JSON
+    /*
+    Solucion: 
+    https://stackoverflow.com/questions/16577907/hibernate-onetomany-relationship-causes-infinite-loop-or-empty-entries-in-json
+    */
 }
