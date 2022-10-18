@@ -18,6 +18,7 @@ public interface ProductoService {
      * Esto es util cuando quieres obtener solo ciertos elementos de una tupla/columan de una DB.
      * Puedes obtener 1 entidad por id, o todos los campos de la clase correspondiente.
     */
+
     public Categoria getCategoriaById(Long id);
 
     public List<Categoria> getAllCategoria();
@@ -28,7 +29,15 @@ public interface ProductoService {
 
     /* Métodos CRUD */
     
-    //
+    /*
+     * Los siguientes metodos que son los implementados por ProductoServiceImp 
+     * realizaran las 4 operaciones basicas CRUD:
+     * CREATE -> 
+     * READ -> 
+     * UPDATE->
+     * DELETE -> Por razones Institucionales, no se eliminara directamente un elemento de la DB, en cambio
+     * se realizara una
+     */
     public List<Producto> getAllProduct();
 
     public Producto saveProduct(Producto producto);
