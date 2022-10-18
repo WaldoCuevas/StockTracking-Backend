@@ -39,7 +39,7 @@ public class Producto {
     private float cantidad;
 
     @Column(name = "estado")
-    private Boolean estado;
+    private Boolean estado = true;
 
     @ManyToOne(cascade = CascadeType.ALL)  
     @JoinColumn(name = "id_categoria")
