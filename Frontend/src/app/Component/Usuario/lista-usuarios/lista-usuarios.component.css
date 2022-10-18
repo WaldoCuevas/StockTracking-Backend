@@ -27,6 +27,14 @@ table tr:nth-child(odd) {
     background-color: #0000003b;
 }
 
+table tr:nth-child(even) {
+    background-color: #0000001a;
+}
+
+th {
+    background-color: var(--side-color);
+}
+
 @media(min-width:850px) {
     table {
         min-width: 80vw;

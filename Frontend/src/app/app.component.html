@@ -1,15 +1,21 @@
-<div class="nav-container">
+<header class="nav-container">
   <h1 class="title">StockTracking</h1>
+
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fa-solid fa-bars"></i>
+  </label>
+
   <nav class="navbar">
     <a class="link" routerLink="lista-productos" routerLinkActive="active">Lista de Productos</a>
     <a class="link" routerLink="registrar-producto" routerLinkActive="active">Añadir Producto</a>
     <a class="link" routerLink="iniciar-sesion" routerLinkActive="active">Cerrar Sesion</a>
   </nav>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
   <router-outlet></router-outlet>
-</div>
+</section>
 
 <footer>
   <p class="paragraph"> Creada por:</p>

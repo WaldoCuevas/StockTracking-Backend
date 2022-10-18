@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StockTrackingApplication<stockTracking>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "tup.stockTracking.StockTrackingApplication",
+            "projectName": "stockTracking",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

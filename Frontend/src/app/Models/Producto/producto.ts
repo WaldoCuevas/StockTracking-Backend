@@ -16,4 +16,5 @@ export class Producto {
 
   unidad: Unidad;
   categoria: Categoria;
+  estado: boolean;
 }
