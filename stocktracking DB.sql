@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2022 a las 16:55:36
+-- Tiempo de generación: 19-10-2022 a las 13:34:20
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -20,10 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `stocktracking`
 --
-
-DROP DATABASE IF EXISTS `stocktracking`;
-CREATE DATABASE `stocktracking`;
-USE `stocktracking`;
 
 -- --------------------------------------------------------
 
@@ -57,19 +53,20 @@ CREATE TABLE `productos` (
   `Descripcion` varchar(254) NOT NULL,
   `Cantidad` float NOT NULL,
   `id_categoria` int(11) NOT NULL,
-  `id_unidad` int(11) NOT NULL
+  `id_unidad` int(11) NOT NULL,
+  `Estado` bit(1) DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `Nombre`, `Descripcion`, `Cantidad`, `id_categoria`, `id_unidad`) VALUES
-(1, 'ACEITE BOMBA VACIO x 5lts', '', 10, 1, 1),
-(2, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 2),
-(3, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 3),
-(25, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 3),
-(26, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 1);
+INSERT INTO `productos` (`id`, `Nombre`, `Descripcion`, `Cantidad`, `id_categoria`, `id_unidad`, `Estado`) VALUES
+(1, 'ACEITE BOMBA VACIO x 5lts', '', 10, 1, 1, b'1'),
+(2, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 2, b'1'),
+(3, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 3, b'1'),
+(25, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 3, b'1'),
+(26, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 1, b'0');
 
 -- --------------------------------------------------------
 

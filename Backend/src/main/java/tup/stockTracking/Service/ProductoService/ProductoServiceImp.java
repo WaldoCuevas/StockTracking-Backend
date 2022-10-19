@@ -102,8 +102,6 @@ public class ProductoServiceImp implements ProductoService {
     @Override
     public void deleteProduct(Long id) {
 
-        boolean estado = true;
-
         Producto producto = productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el producto con el id: " + id));
 
