@@ -15,7 +15,6 @@ public class UsuarioServiceImp implements UsuarioService {
     @Autowired
     private UsuarioRepository userRepository;
 
-
     @Override
     public Usuario getUserById(Long id) {
 
@@ -63,28 +62,43 @@ public class UsuarioServiceImp implements UsuarioService {
     }
 
     @Override
-    public boolean verifyCredentials(Usuario userCredencial) {
+    public Usuario UserExists(Usuario userCredencial) {
 
         List<Usuario> lista = userRepository.findAll();
 
-        String emailVerificado = "";
-        String passwordVerificado = "";
+        Usuario usuario_existente = new Usuario();
 
         for (Usuario usuario : lista) {
 
             if (usuario.getEmail().equals(userCredencial.getEmail())) {
-                emailVerificado = usuario.getEmail();
+                usuario_existente.setEmail(usuario.getEmail());
 
                 if (usuario.getPassword().equals(userCredencial.getPassword())) {
-                    passwordVerificado = usuario.getPassword();
+                    usuario_existente.setPassword(usuario.getPassword());
+
+                    if (usuario_existente.getEmail().equals(userCredencial.getEmail()) &&
+                            usuario_existente.getPassword().equals(userCredencial.getPassword())) {
+
+                        usuario_existente.setId(usuario.getId());
+
+                        return usuario_existente;
+                    }
+
                 }
 
             }
 
         }
+        return null;
+    }
 
-        if (emailVerificado.equals(userCredencial.getEmail())
-                && passwordVerificado.equals(userCredencial.getPassword())) {
+    @Override
+    public boolean verifyCredentials(Usuario userCredencial) {
+
+        Usuario user = UserExists(userCredencial);
+
+        if (user.getEmail().equals(userCredencial.getEmail())
+                && user.getPassword().equals(userCredencial.getPassword())) {
             return Boolean.TRUE;
         }
 

@@ -21,6 +21,8 @@ public interface UsuarioService {
 
     //public Credenciales getcredentialById(Long id);
 
+    public Usuario UserExists(Usuario credencial);
+
     public boolean verifyCredentials(Usuario credencial);
 
 }

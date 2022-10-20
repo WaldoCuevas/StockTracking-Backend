@@ -25,6 +25,7 @@ export class IniciarSesionComponent implements OnInit {
 
       if (dato != null){
         alert('Credenciales verificadas!');
+        console.log(dato)
       this.irAlPerfil(dato.id);
       } else {
       alert('Credenciales Incorrecta, intente nuevamente!');

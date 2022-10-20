@@ -59,8 +59,9 @@ public class UsuarioController {
     @PostMapping("/credenciales")
     public ResponseEntity<Usuario> verificarCredenciales(@RequestBody Usuario requestCredencial) {
 
+        
         if(this.UserService.verifyCredentials(requestCredencial)){
-            return ResponseEntity.ok(requestCredencial);
+            return ResponseEntity.status(HttpStatus.CREATED).body(this.UserService.UserExists(requestCredencial));
         }
         return ResponseEntity.ok(null);
     } 
