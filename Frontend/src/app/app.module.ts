@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
+import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetallesProductoComponent } from './Component/Producto/detalles-product
     ModificarProductoComponent,
     RegistrarProductoComponent,
     IniciarSesionComponent,
-    DetallesProductoComponent
+    DetallesProductoComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
