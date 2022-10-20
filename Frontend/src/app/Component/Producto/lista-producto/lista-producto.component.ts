@@ -20,7 +20,7 @@ export class ListaProductoComponent implements OnInit {
   }
 
   actualizarProducto(id:number){
-    this.router.navigate(['actualizar-producto',id]);
+    this.router.navigate(['actualizar-producto', id]);
   }
 
   private obtenerProductos(){
@@ -34,6 +34,10 @@ export class ListaProductoComponent implements OnInit {
       console.log(dato);
       this.obtenerProductos();
     })
+  }
+
+  verDetallesProducto(id:number) {
+    this.router.navigate(['detalles-producto', id]);
   }
 
 }

@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
+import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/inici
     ListaProductoComponent,
     ModificarProductoComponent,
     RegistrarProductoComponent,
-    IniciarSesionComponent
+    IniciarSesionComponent,
+    DetallesProductoComponent
   ],
   imports: [
     BrowserModule,

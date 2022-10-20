@@ -1,6 +1,7 @@
 table {
     min-width: 85vw;
     max-width: 90vw;
+    min-height: 45vh;
     border-collapse: collapse;
 }
 

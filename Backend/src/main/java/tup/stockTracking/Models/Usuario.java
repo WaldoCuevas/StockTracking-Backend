@@ -36,7 +36,7 @@ public class Usuario {
     private Integer edad;
 
     @Column(name = "rol")
-    private Boolean rol;
+    private Boolean rol = false;
 
     @Column(name = "password")
     private String password;

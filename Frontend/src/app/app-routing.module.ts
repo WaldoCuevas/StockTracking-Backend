@@ -10,6 +10,7 @@ import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/inici
 import { ListaProductoComponent } from './Component/Producto/lista-producto/lista-producto.component';
 import { ModificarProductoComponent } from './Component/Producto/modificar-producto/modificar-producto.component';
 import { RegistrarProductoComponent } from './Component/Producto/registrar-producto/registrar-producto.component';
+import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 
 const routes: Routes = [
   //Rutas para usuarios
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'registrar-producto', component: RegistrarProductoComponent },
   { path: 'lista-productos', component: ListaProductoComponent },
   { path: 'actualizar-producto/:id', component: ModificarProductoComponent },
+  { path: 'detalles-producto/:id', component: DetallesProductoComponent },
 
 
   { path: '', component: IniciarSesionComponent, pathMatch: "full"},

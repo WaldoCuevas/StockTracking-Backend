@@ -2,12 +2,12 @@
   <h3>Registrar un Producto</h3>
   <form class="form" (ngSubmit)="onSubmit()">
     <div>
-      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" placeholder="Nombre" />
+      <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" placeholder="Nombre" maxlength="60"/>
     </div>
 
     <div>
       <input type="text" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion"
-        placeholder="Descripcion" />
+        placeholder="Descripcion" maxlength="254"/>
     </div>
 
     <div>

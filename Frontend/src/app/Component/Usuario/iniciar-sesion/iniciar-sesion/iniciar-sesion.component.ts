@@ -25,7 +25,7 @@ export class IniciarSesionComponent implements OnInit {
 
       if (dato != null){
         alert('Credenciales verificadas!');
-      this.irALaListaDeUsuario();
+      this.irALaListaDeProductos();
       } else {
       alert('Credenciales Incorrecta, intente nuevamente!');
 
@@ -38,7 +38,7 @@ export class IniciarSesionComponent implements OnInit {
     this.verificacion();
   }
 
-  irALaListaDeUsuario() {
-    this.router.navigate(['lista-usuarios']);
+  irALaListaDeProductos() {
+    this.router.navigate(['lista-productos']);
   }
 }

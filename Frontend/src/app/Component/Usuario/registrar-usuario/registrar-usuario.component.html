@@ -2,19 +2,19 @@
     <h3>Registro de Usuario</h3>
     <form class="form" (ngSubmit)="onSubmit()">
         <div>
-            <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre">
+            <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre" maxlength="30">
         </div>
         <div>
-            <input type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" placeholder="Apellido">
+            <input type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" placeholder="Apellido" maxlength="30">
         </div>
         <div>
-            <input type="email" id="email" [(ngModel)]="usuario.email" name="email" placeholder="Email">
+            <input type="email" id="email" [(ngModel)]="usuario.email" name="email" placeholder="Email" maxlength="35">
         </div>
         <div>
-            <input type="number" id="edad" [(ngModel)]="usuario.edad" name="edad" placeholder="Edad">
+            <input type="number" id="edad" [(ngModel)]="usuario.edad" name="edad" placeholder="Edad" min="0">
         </div>
         <div>
-            <input type="text" id="password" [(ngModel)]="usuario.password" name="password" placeholder="Contraseña">
+            <input type="password" id="password" [(ngModel)]="usuario.password" name="password" placeholder="Contraseña" maxlength="75">
         </div>
         <button>Guardar</button>
     </form>
