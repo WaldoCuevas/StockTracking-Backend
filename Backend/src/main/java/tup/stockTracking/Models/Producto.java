@@ -38,7 +38,7 @@ public class Producto {
     @Column(name = "Cantidad")
     private float cantidad;
 
-    @Column(name = "estado")
+    @Column(name = "Estado")
     private Boolean estado = true;
 
     @ManyToOne(cascade = CascadeType.ALL)  
