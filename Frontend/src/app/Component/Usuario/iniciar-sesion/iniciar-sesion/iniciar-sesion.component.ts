@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Credenciales } from './../../../../Models/Usuario/credenciales';
 import { UserServiceService } from './../../../../Service/Usuario/user-service.service';
 
@@ -11,32 +11,51 @@ import { UserServiceService } from './../../../../Service/Usuario/user-service.s
 export class IniciarSesionComponent implements OnInit {
 
   credenciales: Credenciales = new Credenciales();
+  token:string;
 
-  constructor( private router: Router, private servicio: UserServiceService) {}
+  constructor(private router: Router, private servicio: UserServiceService) { }
 
   ngOnInit(): void {
   }
 
   verificacion() {
+
+    //Verificar login
+
+    this.servicio.verificarCredenciales(this.credenciales).subscribe((dato) => {
+      if (dato != null) {
+        alert('Credenciales verificadas!');
+        this.credenciales.id = dato.id;
+        this.credenciales.email = dato.email;
+        this.credenciales.password = dato.password;
+
+
+
+        this.irAlPerfil(1);
+      } else {
+        alert('Credenciales Incorrecta, intente nuevamente!');
+      }
+    });
+
+    //Crear sesion con ese login
+
     this.servicio.login(this.credenciales).subscribe((dato) => {
 
-      if (dato != null){
-        alert('Credenciales verificadas!');
-        console.log(dato)
-      this.irAlPerfil(dato.id);
-      } else {
-      alert('Credenciales Incorrecta, intente nuevamente!');
+      localStorage.setItem("Token", dato );
 
-    }
+      var token = localStorage.getItem("Token");
+
+      console.log(token)
 
     });
+
   }
 
   iniciarSesion() {
     this.verificacion();
   }
 
-  irAlPerfil(id:number) {
+  irAlPerfil(id: any) {
     this.router.navigate(['perfil-usuario', id]);
   }
 }
