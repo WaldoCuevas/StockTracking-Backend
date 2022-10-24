@@ -12,7 +12,7 @@ import { RegistrarProductoComponent } from './Component/Producto/registrar-produ
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
@@ -36,7 +36,7 @@ import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfi
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@ export class UserServiceService {
 
   private urlCredenciales = "http://localhost:8080/api/credenciales";
 
-  private obtenerToken = "http://localhost:8080/api/token";
+  private obtenerToken = "http://localhost:8080/api/login";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -38,7 +38,9 @@ export class UserServiceService {
   }
 
   login(credencial:Credenciales): Observable<any> {
-    return this.httpClient.post(`${this.obtenerToken}`,credencial, { responseType: 'text'});
+    return this.httpClient.post(`${this.obtenerToken}`,credencial);
   }
+
+  //, { responseType: 'text'}
 
 }

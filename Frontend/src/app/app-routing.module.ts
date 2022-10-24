@@ -12,10 +12,11 @@ import { ModificarProductoComponent } from './Component/Producto/modificar-produ
 import { RegistrarProductoComponent } from './Component/Producto/registrar-producto/registrar-producto.component';
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
+import { UserGuardGuard } from './Utils/Guard/user-guard.guard';
 
 const routes: Routes = [
   //Rutas para usuarios
-  { path: 'lista-usuarios', component: ListaUsuariosComponent },
+  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard] },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'iniciar-sesion', component: IniciarSesionComponent, },
   { path: 'perfil-usuario/:id', component: PerfilUsuarioComponent },

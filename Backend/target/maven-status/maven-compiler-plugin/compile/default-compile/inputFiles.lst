@@ -1,14 +1,31 @@
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Repository\UsuarioRepository.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Repository\ProductoRepository.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\ServletInitializer.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Service\UsuarioService\UsuarioServiceImp.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Service\ProductoService\ProductoServiceImp.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\StockTrackingApplication.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Controllers\ProductoController.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Exceptions\ResourceNotFoundException.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Service\ProductoService\ProductoService.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Controllers\UsuarioController.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Models\Categoria.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Models\Usuario.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Models\Producto.java
-e:\Waldo\Programacion\WorkSpace\Aplicaciones Personales\StockTracking\WorkSpace\Backend\stockTracking\src\main\java\tup\stockTracking\Service\UsuarioService\UsuarioService.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Exceptions\ResourceNotFoundException.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\ServletInitializer.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\DTO\LoginUsuario.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\DTO\JwtDto.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Mensaje.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\JWT\JwtEntryPoint.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Repository\ProductoRepository.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Repository\RolRepository.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Repository\UnidadRepository.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\JWT\JwtProvider.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\DTO\NuevoUsuario.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Models\Categoria.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Service\ProductoService.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Enums\RolNombre.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Models\Unidad.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\JWT\JwtTokenFilter.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Repository\CategoriaRepository.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Controller\AuthController.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Models\Usuario.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Repository\UsuarioRepository.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Service\RolService.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\MainSecurity.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Service\ProductoServiceImp.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Models\UsuarioPrincipal.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Controllers\ProductoController.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Service\UsuarioService.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\CrearRoles.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Models\Rol.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Usuarios\Service\UserDetailsServiceImpl.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\Productos\Models\Producto.java
+e:\Waldo\Programacion\Git\Repository\MyRepository\StockTracking\Backend\src\main\java\tup\stockTracking\StockTrackingApplication.java

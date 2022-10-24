@@ -31,7 +31,7 @@ export class IniciarSesionComponent implements OnInit {
 
 
 
-        this.irAlPerfil(1);
+        this.irAlPerfil(this.credenciales.id);
       } else {
         alert('Credenciales Incorrecta, intente nuevamente!');
       }
@@ -41,11 +41,7 @@ export class IniciarSesionComponent implements OnInit {
 
     this.servicio.login(this.credenciales).subscribe((dato) => {
 
-      localStorage.setItem("Token", dato );
-
-      var token = localStorage.getItem("Token");
-
-      console.log(token)
+      localStorage.setItem("token", dato)
 
     });
 
