@@ -29,8 +29,6 @@ export class IniciarSesionComponent implements OnInit {
         this.credenciales.email = dato.email;
         this.credenciales.password = dato.password;
 
-
-
         this.irAlPerfil(this.credenciales.id);
       } else {
         alert('Credenciales Incorrecta, intente nuevamente!');
@@ -54,4 +52,5 @@ export class IniciarSesionComponent implements OnInit {
   irAlPerfil(id: any) {
     this.router.navigate(['perfil-usuario', id]);
   }
+
 }

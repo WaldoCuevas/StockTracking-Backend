@@ -10,6 +10,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+
+/**
+ * Esta clase es la que se encarga de crear el token.
+ * Tambien tiene metodos para:
+    * verificar que esta bien creado
+    * verificar si el token expiro o no
+    * metodo para obtener el nombreUsuario mediante ese token.
+*/
 @Component
 public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);

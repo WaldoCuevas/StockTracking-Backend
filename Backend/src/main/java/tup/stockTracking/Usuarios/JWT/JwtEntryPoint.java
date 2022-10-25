@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Esta clase es la que se encarga de verificar si Existe un token.
+*/
 @Component
 public class JwtEntryPoint implements AuthenticationEntryPoint {
 
