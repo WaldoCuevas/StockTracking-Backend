@@ -15,17 +15,20 @@ import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfi
 import { UserGuardGuard } from './Utils/Guard/user-guard.guard';
 
 const routes: Routes = [
+
+  //Menu principal
+
   //Rutas para usuarios
-  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard] },
-  { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
-  { path: 'iniciar-sesion', component: IniciarSesionComponent, },
-  { path: 'perfil-usuario/:id', component: PerfilUsuarioComponent },
+  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin','user']} },
+  { path: 'registrar-usuario', component: RegistrarUsuarioComponent},
+  { path: 'iniciar-sesion', component: IniciarSesionComponent },
+  { path: 'perfil-usuario/:id', component: PerfilUsuarioComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin','user']} },
 
   //rutas para productos
-  { path: 'registrar-producto', component: RegistrarProductoComponent },
-  { path: 'lista-productos', component: ListaProductoComponent },
-  { path: 'actualizar-producto/:id', component: ModificarProductoComponent },
-  { path: 'detalles-producto/:id', component: DetallesProductoComponent },
+  { path: 'registrar-producto', component: RegistrarProductoComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin']} },
+  { path: 'lista-productos', component: ListaProductoComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin','user']} },
+  { path: 'actualizar-producto/:id', component: ModificarProductoComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin']} },
+  { path: 'detalles-producto/:id', component: DetallesProductoComponent, canActivate: [UserGuardGuard], data: {expectedRol: ['admin','user']} },
 
 
   { path: '', component: IniciarSesionComponent, pathMatch: "full"},

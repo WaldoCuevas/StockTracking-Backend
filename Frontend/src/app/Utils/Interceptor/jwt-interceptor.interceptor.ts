@@ -3,20 +3,31 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Injectable()
 export class JwtInterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private router:Router) {}
+  constructor(private tokenService: TokenService, private router: Router) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-
-    return next.handle(request);
+    let intReq = request;
+    const token = this.tokenService.getToken();
+    if (token != null) {
+      intReq = request.clone({
+        // headers: request.headers.set('Authorization', 'Bearer ' + token)
+        headers: request.headers.set('Authorization', `Bearer ${ token }`)
+      });
+    }
+    return next.handle(intReq);
   }
 }
+
+export const interceptorProvider = [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor,multi:true}];
+ 

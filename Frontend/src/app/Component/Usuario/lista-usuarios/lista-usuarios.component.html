@@ -11,14 +11,16 @@
       </tr>
     </thead>
   <tbody>
+    <!--
     <tr *ngFor="let user of usuarios">
-      <!-- <td>{{ user.nombre }}</td> -->
-      <!-- <td>{{ user.apellido }}</td> -->
+      <td>{{ user.nombre }}</td> 
+       <td>{{ user.apellido }}</td> -
       <td>{{ user.email }}</td>
-      <!-- <td>{{ user.edad }}</td> -->
+       <td>{{ user.edad }}</td> 
       <td *ngIf="user.rol">Administrador</td>
       <td *ngIf="!user.rol">Usuario</td>
     </tr>
+  -->
   </tbody>
 </table>
 </div>

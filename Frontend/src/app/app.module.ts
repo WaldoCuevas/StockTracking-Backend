@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { interceptorProvider } from './Utils/Interceptor/jwt-interceptor.interceptor';
 
 //Import para Usuarios
 import { ListaUsuariosComponent } from './Component/Usuario/lista-usuarios/lista-usuarios.component';
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfi
     HttpClientModule,
     FormsModule,
   ],
-  providers: [ ],
+  providers: [ interceptorProvider ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

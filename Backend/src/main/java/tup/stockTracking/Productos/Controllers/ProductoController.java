@@ -49,7 +49,7 @@ public class ProductoController {
         return ResponseEntity.ok().body(this.ProductService.getUnidadById(id));
     }
 
-    //Controlador para obtener todos los elementos
+    // Controlador para obtener todos los elementos
 
     @GetMapping("/productos")
     public ResponseEntity<List<Producto>> obtenerTodosLosProductos() {
@@ -66,7 +66,8 @@ public class ProductoController {
         return ResponseEntity.ok().body(this.ProductService.getAllUnidad());
     }
 
-    //Controladores para los las funciones CRUD que solo puede hacer el ADMINISTRADOR
+    // Controladores para los las funciones CRUD que solo puede hacer el
+    // ADMINISTRADOR
 
     // CREATE
     @PreAuthorize("hasRole('ADMIN')")
@@ -90,13 +91,20 @@ public class ProductoController {
     @DeleteMapping("/productos/{id}")
     public ResponseEntity<Producto> DeleteProducto(@PathVariable Long id) {
 
-            if (ProductService.EstadoProducto(id)){
-            return ResponseEntity.ok().build();
-            }
-            
-            return ResponseEntity.badRequest().build();
-        }
-        
+        // Lo que esta sucediendo es lo siguiente:
+        /*
+         * Va a buscar el 'estado' de ese producto.
+         * si esta en true: significa que el producto estaba habilitado. y pasara a
+         * estar desabilitado.
+         * Si esta en false: significa que le producto estaba deshabilitado, y pasara a
+         * estar desabilitado.
+         */
 
+        if (!ProductService.EstadoProducto(id)) {
+
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.ok().build();
+    }
 
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoService } from '../../../Service/Producto/producto.service';
 import { Producto } from '../../../Models/Producto/producto';
+import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
   selector: 'app-lista-producto',
@@ -13,10 +14,21 @@ export class ListaProductoComponent implements OnInit {
 
   productos: Producto[];
 
-  constructor(private productoServicio: ProductoService, private router: Router) { }
+  roles:string[];
+  isAdmin = false;
+
+  constructor(
+    private productoServicio: ProductoService, private router: Router, private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.obtenerProductos();
+    this.roles = this.tokenService.getAuthorities();
+
+    this.roles.forEach( rol => {
+      if (rol === 'ROLE_ADMIN'){
+        this.isAdmin = true;
+      }
+    })
   }
 
   actualizarProducto(id:number){

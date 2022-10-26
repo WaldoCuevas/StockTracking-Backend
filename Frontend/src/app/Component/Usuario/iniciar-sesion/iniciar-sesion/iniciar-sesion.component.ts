@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Credenciales } from './../../../../Models/Usuario/credenciales';
-import { UserServiceService } from './../../../../Service/Usuario/user-service.service';
+import { of } from 'rxjs';
+import { JWTDTO } from 'src/app/Models/Usuario/jwt-dto';
+import { LoginUsuario } from 'src/app/Models/Usuario/login-usuario';
+import { AuthService } from 'src/app/Service/Usuario/auth.service';
+import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -10,44 +13,55 @@ import { UserServiceService } from './../../../../Service/Usuario/user-service.s
 })
 export class IniciarSesionComponent implements OnInit {
 
-  credenciales: Credenciales = new Credenciales();
-  token:string;
+  isLogged = false;
+  isLoginFalse = false;
+  loginUsuario: LoginUsuario;
 
-  constructor(private router: Router, private servicio: UserServiceService) { }
+  nombreUsuario: string;
+  password: string
 
-  ngOnInit(): void {
+  errMsj:string;
+
+  roles: string[] = [];
+
+  constructor(private router: Router, private tokenService: TokenService, private authService: AuthService) { }
+
+  ngOnInit() {
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFalse = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   verificacion() {
 
-    //Verificar login
+  }
 
-    this.servicio.verificarCredenciales(this.credenciales).subscribe((dato) => {
-      if (dato != null) {
-        alert('Credenciales verificadas!');
-        this.credenciales.id = dato.id;
-        this.credenciales.email = dato.email;
-        this.credenciales.password = dato.password;
+  //onLogin
+  iniciarSesion() {
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.authService.login(this.loginUsuario).subscribe({
+      next: (data) => {
+        this.isLogged = true;
+        this.isLoginFalse = false;
 
-        this.irAlPerfil(this.credenciales.id);
-      } else {
-        alert('Credenciales Incorrecta, intente nuevamente!');
+        this.tokenService.setToken(data.token);
+        this.tokenService.setUserName(data.nombreUsuario);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        this.router.navigate(['/lista-productos']);
+      }, error: err => {
+        this.isLogged = false;
+        this.isLoginFalse = true;
+        this.errMsj = err.error.mensaje;
+        console.log(this.errMsj);
+        console.log(this.nombreUsuario);
+        console.log(this.password);
       }
     });
-
-    //Crear sesion con ese login
-
-    this.servicio.login(this.credenciales).subscribe((dato) => {
-
-      localStorage.setItem("token", dato)
-
-    });
-
   }
 
-  iniciarSesion() {
-    this.verificacion();
-  }
 
   irAlPerfil(id: any) {
     this.router.navigate(['perfil-usuario', id]);
