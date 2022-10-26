@@ -45,18 +45,14 @@ export class ProductoService {
 
   //metodo para obtener un tipo de unidad de un producto (Tabla Unidad)
 
-  private getCategoria = 'http://localhost:8080/api/productos/categorias';
-
   obtenerCategorias(): Observable<Categoria[]> {
-    return this.httpClient.get<Categoria[]>(`${this.getCategoria}`);
+    return this.httpClient.get<Categoria[]>(`${this.Url + '/categorias'}`);
   }
 
   //metodo para obtener una categoria de un producto (Tabla Categoria)
 
-  private getUnidad = 'http://localhost:8080/api/productos/unidades';
-
   obtenerUnidades(): Observable<Unidad[]> {
-    return this.httpClient.get<Unidad[]>(`${this.getUnidad}`);
+    return this.httpClient.get<Unidad[]>(`${this.Url + '/unidades'}`);
   }
 
 

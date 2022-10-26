@@ -1,0 +1,21 @@
+Implementacion de Spring Security
+
+Asignar Rol -> Admin -> En caso de no asignar Rol por defecto se creara un rol USER.
+
+al realizar una request es necesario enviar el token del usuario:
+
+Bearer + Token (example: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJXYWxkbyIsImlhdCI6MTY2NjYyNjgwMSwiZXhwIjoxNjY2NjYyODAxfQ.9-vS_VmTlWrC0jHQFoOzR_b2OVwJS2yOD1U8cHWwCqTLaF8D0UKf3-In-OnMIOlon6jSbVDg6NXt5dK0cKhKEA)
+
+usuarios
+ -> Admin: Puede realizar todas las request
+	-> request:
+		* GetProductById
+		* GetAllProduct
+		* DeleteProduct
+		* UpdateProduct
+		* CreateProduct
+ 
+ -> User: Posee limitaciones en las request
+	-> Request:
+		* GetProductById
+		* GetAllProduct
