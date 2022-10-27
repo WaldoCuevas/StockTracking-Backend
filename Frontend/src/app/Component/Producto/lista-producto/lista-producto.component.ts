@@ -22,6 +22,7 @@ export class ListaProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerProductos();
+    
     this.roles = this.tokenService.getAuthorities();
 
     this.roles.forEach( rol => {

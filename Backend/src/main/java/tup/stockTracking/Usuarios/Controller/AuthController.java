@@ -56,7 +56,8 @@ public class AuthController {
         if (usuarioService.existsByEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity(new Mensaje("ese email ya existe"), HttpStatus.BAD_REQUEST);
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getApellido(), nuevoUsuario.getEmail(),
-                nuevoUsuario.getEdad(), nuevoUsuario.getNombreUsuario(),passwordEncoder.encode(nuevoUsuario.getPassword()));
+                nuevoUsuario.getEdad(), nuevoUsuario.getNombreUsuario(),
+                passwordEncoder.encode(nuevoUsuario.getPassword()));
         Set<Rol> roles = new HashSet<>();
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
         if (nuevoUsuario.getRoles().contains("admin"))
@@ -78,4 +79,13 @@ public class AuthController {
         JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
+
+    @GetMapping("/usuario/{nombreUsuario}")
+    public ResponseEntity<Usuario> getUsuario(@PathVariable String nombreUsuario) {
+
+        Usuario usuario = this.usuarioService.getNombreUsuario(nombreUsuario).get();
+
+        return ResponseEntity.ok().body(usuario);
+    }
+
 }

@@ -12,4 +12,5 @@ export class NuevoUsuario {
 
     //Authorities
     authorities:string[];
+    
 }
