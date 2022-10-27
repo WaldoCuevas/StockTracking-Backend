@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2022 a las 18:49:51
+-- Tiempo de generación: 27-10-2022 a las 19:46:42
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,10 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `stocktracking`
 --
+
+CREATE DATABASE stocktracking;
+
+USE stocktracking;
 
 -- --------------------------------------------------------
 
@@ -62,11 +66,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `Nombre`, `Descripcion`, `Cantidad`, `id_categoria`, `id_unidad`, `Estado`) VALUES
-(1, 'prueba', 'esto es una prueba', 12, 2, 3, b'0'),
+(1, 'modificado', 'esto es una modificacion', 50, 1, 1, b'1'),
 (2, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 2, b'1'),
 (3, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 3, b'1'),
-(25, 'ACEITE BOMBA VACIO x 5lts', '', 10, 2, 3, b'1'),
-(26, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 1, b'0');
+(25, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 1, b'1'),
+(26, 'ACEITE BOMBA VACIO x 5lts', '', 10, 3, 1, b'1');
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `edad`, `email`, `nombre_usuario`, `password`) VALUES
 (5, 'waldo', 'cuevas', 24, 'waldo@example.com', 'Waldo', '$2a$10$Tc/6QlTVTZeeHt32UqIxJeqLXhpCvwokbC6TcSVfhPc8.A./tawvq'),
-(6, 'prueba', 'prueba', 1, 'prueba@example.com', 'prueba', '$2a$10$els5UmM00g22nsQNP04qzeyc2s19pIaosWnAYnjCxNhdHRrmYSfve');
+(6, 'prueba', 'prueba', 1, 'prueba@example.com', 'prueba', '$2a$10$els5UmM00g22nsQNP04qzeyc2s19pIaosWnAYnjCxNhdHRrmYSfve'),
+(7, 'Juan', 'Perez', 21, 'admin@example.com', 'admin', '$2a$10$qwKe4wW2lgm0x5NrQdQXeO0dW50kU42TnHvZc345qFPkFwl8SdLe.'),
+(8, 'Roberto', 'Cediño', 24, 'user@example.com', 'user', '$2a$10$x6Qimw2ATNRTHHiRWOz5lO/uvhDdqWN3rV8eQa8cAficP7xHUWpRi');
 
 -- --------------------------------------------------------
 
@@ -149,7 +155,10 @@ CREATE TABLE `usuario_rol` (
 INSERT INTO `usuario_rol` (`usuario_id`, `rol_id`) VALUES
 (5, 2),
 (6, 1),
-(6, 2);
+(6, 2),
+(7, 1),
+(7, 2),
+(8, 2);
 
 --
 -- Índices para tablas volcadas
@@ -227,7 +236,7 @@ ALTER TABLE `unidades`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
