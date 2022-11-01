@@ -111,6 +111,8 @@ public class ProductoServiceImp implements ProductoService {
 
     }
 
+    // dar de baja/alta un producto
+
     @Override
     public Boolean EstadoProducto(Long id) {
 

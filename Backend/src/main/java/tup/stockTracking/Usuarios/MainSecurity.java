@@ -73,7 +73,7 @@ public class MainSecurity {
      * UsernamePasswordAuthenticationFilter.class);
      * }
      */
-
+        
     // Nueva implementacion
 
     // AuthenticationManager es reemplazado por UserDetailsManager o
