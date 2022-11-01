@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
+import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
+import { TokenService } from 'src/app/Service/Usuario/token.service';
+
 @Component({
   selector: 'app-registrar-usuario',
   templateUrl: './registrar-usuario.component.html',
@@ -8,16 +12,39 @@ import { Router } from '@angular/router';
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  usuario: NuevoUsuario = new NuevoUsuario();
+
+  isLogged = false;
+
+  constructor(private tokenService: TokenService,
+    private usuarioService: UsuarioService,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    }
+
   }
 
   guardarUsuario() {
+    this.usuarioService.nuevo(this.usuario).subscribe(
+      {
+        next: (data) => {
+          alert('Cuenta creada xd');
+          console.log(data);
+          this.goToListaUsuarios();
+
+        }, error: (err) => {
+          console.log('Error al crear la cuenta', err)
+        }
+      });
   }
 
   goToListaUsuarios() {
-    this.router.navigate(['/lista-usuarios'])
+    this.router.navigate(['/iniciar-sesion'])
   }
 
   onSubmit() {

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JWTDTO } from 'src/app/Models/Usuario/jwt-dto';
 import { LoginUsuario } from 'src/app/Models/Usuario/login-usuario';
@@ -8,7 +8,7 @@ import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UsuarioService {
 
   Url = 'http://localhost:8080/auth/';
 
@@ -24,6 +24,11 @@ export class AuthService {
 
   getUsuario(nombreUsuario: String | null): Observable<NuevoUsuario> {
     return this.httpClient.get<NuevoUsuario>(`${this.Url + 'usuario'}/${nombreUsuario}`);
+  }
+
+  //Metodo para obtener todos los productos
+  obtenerListaDeUsuarios(): Observable<NuevoUsuario[]> {
+    return this.httpClient.get<NuevoUsuario[]>(`${this.Url + 'usuarios'}`);
   }
 
 }

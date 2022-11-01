@@ -30,6 +30,7 @@ export class ListaProductoComponent implements OnInit {
         this.isAdmin = true;
       }
     })
+    
   }
 
   actualizarProducto(id:number){

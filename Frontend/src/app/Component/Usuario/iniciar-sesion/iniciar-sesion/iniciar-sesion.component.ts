@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
-import { JWTDTO } from 'src/app/Models/Usuario/jwt-dto';
 import { LoginUsuario } from 'src/app/Models/Usuario/login-usuario';
-import { AuthService } from 'src/app/Service/Usuario/auth.service';
+import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
@@ -24,7 +22,7 @@ export class IniciarSesionComponent implements OnInit {
 
   roles: string[] = [];
 
-  constructor(private router: Router, private tokenService: TokenService, private authService: AuthService) { }
+  constructor(private router: Router, private tokenService: TokenService, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -41,7 +39,7 @@ export class IniciarSesionComponent implements OnInit {
   //onLogin
   iniciarSesion() {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe({
+    this.usuarioService.login(this.loginUsuario).subscribe({
       next: (data) => {
         this.isLogged = true;
         this.isLoginFalse = false;

@@ -1,16 +1,16 @@
 export class NuevoUsuario {
 
     //Datos
-    nombre:string;
-    apellido:string;
-    email:string;
-    edad:number;
+    nombre: string;
+    apellido: string;
+    email: string;
+    edad: number;
 
     //login
-    nombreUsuario:string;
-    password:string;
+    nombreUsuario: string;
+    password: string;
 
     //Authorities
-    authorities:string[];
+    authorities: string[];
     
 }

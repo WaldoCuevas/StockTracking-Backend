@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
+import { MenuComponent } from './Component/Menu/menu/menu.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfi
     RegistrarProductoComponent,
     IniciarSesionComponent,
     DetallesProductoComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

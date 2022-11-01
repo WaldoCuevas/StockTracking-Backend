@@ -1,4 +1,4 @@
-package tup.stockTracking;
+/*package tup.stockTracking;
 
 public class Mensaje {
     private String mensaje;
@@ -15,3 +15,4 @@ public class Mensaje {
         this.mensaje = mensaje;
     }
 }
+*/

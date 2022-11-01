@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
-import { AuthService } from 'src/app/Service/Usuario/auth.service';
+import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
@@ -14,11 +14,11 @@ export class PerfilUsuarioComponent implements OnInit {
   usuario:NuevoUsuario;
   nombreUsuario:string | null;
   
-  constructor(private router: ActivatedRoute, private authService:AuthService, private tokenService:TokenService) { }
+  constructor(private router: ActivatedRoute, private usuarioService:UsuarioService, private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.nombreUsuario = this.tokenService.getUserName();
-    this.authService.getUsuario(this.nombreUsuario).subscribe( dato => {
+    this.usuarioService.getUsuario(this.nombreUsuario).subscribe( dato => {
       this.usuario = dato;
     });
   }
