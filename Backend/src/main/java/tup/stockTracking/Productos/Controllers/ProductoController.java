@@ -93,11 +93,14 @@ public class ProductoController {
 
         // Lo que esta sucediendo es lo siguiente:
         /*
-         * Va a buscar el 'estado' de ese producto.
-         * si esta en true: significa que el producto estaba habilitado. y pasara a
+         * Llama a un metodo que va a buscar el 'estado' de ese producto.
+         * si retorna un true: significa que el producto estaba habilitado. y pasara a
          * estar desabilitado.
-         * Si esta en false: significa que le producto estaba deshabilitado, y pasara a
+         * si retorna un false: significa que le producto estaba deshabilitado, y pasara a
          * estar desabilitado.
+         * 
+         * los productos realmente no se eliminan de una base de datos, sino que su estado pasa a estar
+         * deshabilitado para el cliente. (solo se puede habilitar desde la db)
          */
 
         if (!ProductService.EstadoProducto(id)) {

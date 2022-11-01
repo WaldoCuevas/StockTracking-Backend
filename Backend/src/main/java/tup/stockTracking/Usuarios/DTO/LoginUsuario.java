@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class LoginUsuario {
 
-    @NotBlank
+    @NotBlank 
     private String nombreUsuario;
 
     @NotBlank

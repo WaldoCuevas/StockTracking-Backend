@@ -35,8 +35,8 @@ public interface ProductoService {
      * CREATE -> 
      * READ -> 
      * UPDATE->
-     * DELETE -> Por razones Institucionales, no se eliminara directamente un elemento de la DB, en cambio
-     * se realizara una
+     * DELETE -> Por razones Institucionales, no se eliminara directamente un elemento de la DB, 
+     * en cambio se realizara un cambio de estado, es decir, pasar producto a estado de baja o de alta.
      */
     public List<Producto> getAllProduct();
 
@@ -44,7 +44,7 @@ public interface ProductoService {
 
     public Producto updateProduct(Producto producto, Long id);
 
-    /* Eliminar y no eliminar productos */
+    /* Eliminar y dar de baja un productos */
 
     public void deleteProduct(Long id);
 
