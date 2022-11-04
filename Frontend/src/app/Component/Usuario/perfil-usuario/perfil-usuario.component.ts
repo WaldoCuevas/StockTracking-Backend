@@ -11,16 +11,34 @@ import { TokenService } from 'src/app/Service/Usuario/token.service';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  usuario:NuevoUsuario;
-  nombreUsuario:string | null;
-  
-  constructor(private router: ActivatedRoute, private usuarioService:UsuarioService, private tokenService:TokenService) { }
+  usuario: NuevoUsuario = new NuevoUsuario();
+
+  nombreUsuario: string | null;
+
+  isAdmin = false;
+  isLogged = false;
+  roles: string[];
+
+  constructor(private router: ActivatedRoute, private usuarioService: UsuarioService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.nombreUsuario = this.tokenService.getUserName();
-    this.usuarioService.getUsuario(this.nombreUsuario).subscribe( dato => {
-      this.usuario = dato;
+    this.usuarioService.getUsuario(this.nombreUsuario).subscribe(dato => {
+    this.usuario = dato;
     });
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      })
+
+    }
+
   }
 
 

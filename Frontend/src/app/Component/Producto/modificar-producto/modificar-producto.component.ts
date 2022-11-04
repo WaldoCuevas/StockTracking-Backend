@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../../../Service/Producto/producto.service';
 import { Producto, Categoria, Unidad } from '../../../Models/Producto/producto';
+import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
   selector: 'app-modificar-producto',
@@ -17,9 +18,26 @@ export class ModificarProductoComponent implements OnInit {
   unidades: Unidad[];
   categorias: Categoria[];
 
-  constructor(private servicio: ProductoService, private router:Router, private route:ActivatedRoute) { }
+  isAdmin = false;
+  isLogged = false;
+  roles: string[];
+
+  constructor(private servicio: ProductoService, private router:Router, private route:ActivatedRoute, private tokenService:TokenService) { }
 
   ngOnInit(): void {
+
+    if (this.tokenService.getToken()) {
+
+      this.isLogged = true;
+      this.roles = this.tokenService.getAuthorities();
+
+      this.roles.forEach(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      })
+
+    }
 
     this.obtenerCategorias();
     this.obtenerUnidades();
@@ -28,6 +46,7 @@ export class ModificarProductoComponent implements OnInit {
     this.servicio.obtenerProductoPorId(this.id).subscribe(dato =>{
       this.producto = dato;
     });
+
   }
 
   irALaListaDeProducto(){

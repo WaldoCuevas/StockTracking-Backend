@@ -16,22 +16,18 @@ import { UserGuardGuard } from './Utils/Guard/user-guard.guard';
 
 const routes: Routes = [
 
-  //Menu principal
-  { path: '', component: IniciarSesionComponent, pathMatch: "full" },
-
   //Rutas para usuarios
-  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
+  
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'iniciar-sesion', component: IniciarSesionComponent },
-  { path: 'perfil-usuario/:string', component: PerfilUsuarioComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: 'lista-usuarios', component: ListaUsuariosComponent },
 
-  //rutas para productos
+    // //Rutas para productos 
   { path: 'registrar-producto', component: RegistrarProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin'] } },
   { path: 'lista-productos', component: ListaProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
   { path: 'actualizar-producto/:id', component: ModificarProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin'] } },
   { path: 'detalles-producto/:id', component: DetallesProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
-
-
 
 ];
 

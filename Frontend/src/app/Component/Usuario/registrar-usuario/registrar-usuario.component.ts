@@ -14,7 +14,9 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   usuario: NuevoUsuario = new NuevoUsuario();
 
+  isAdmin = false;
   isLogged = false;
+  roles: string[];
 
   constructor(private tokenService: TokenService,
     private usuarioService: UsuarioService,
@@ -22,9 +24,15 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     if (this.tokenService.getToken()) {
       this.isLogged = true;
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      })
+
     }
 
   }

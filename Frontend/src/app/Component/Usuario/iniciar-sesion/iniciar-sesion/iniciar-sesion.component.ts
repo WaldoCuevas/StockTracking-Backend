@@ -32,10 +32,6 @@ export class IniciarSesionComponent implements OnInit {
     }
   }
 
-  verificacion() {
-
-  }
-
   //onLogin
   iniciarSesion() {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
@@ -48,7 +44,7 @@ export class IniciarSesionComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.router.navigate(['/lista-productos']);
+        this.router.navigate(['/lista-producto']);
       }, error: err => {
         this.isLogged = false;
         this.isLoginFalse = true;
@@ -58,11 +54,6 @@ export class IniciarSesionComponent implements OnInit {
         console.log(this.password);
       }
     });
-  }
-
-
-  irAlPerfil(id: any) {
-    this.router.navigate(['perfil-usuario', id]);
   }
 
 }
