@@ -22,5 +22,10 @@ export class AppComponent {
   cerrarSesion():void {
     this.tokenService.logOut();
   }
+<<<<<<< Updated upstream
 
 }
+=======
+  
+}
+>>>>>>> Stashed changes
