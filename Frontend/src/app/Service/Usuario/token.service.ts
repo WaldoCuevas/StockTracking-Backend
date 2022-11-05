@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'AuthToken';
@@ -53,5 +52,4 @@ export class TokenService {
   public logOut(): void {
     window.sessionStorage.clear();
   }
-
 }

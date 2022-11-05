@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-import { Producto, Categoria, Unidad } from '../../Models/Producto/producto';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Categoria, Producto, Unidad } from 'src/app/Models/Producto/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +53,5 @@ export class ProductoService {
   obtenerUnidades(): Observable<Unidad[]> {
     return this.httpClient.get<Unidad[]>(`${this.Url + '/unidades'}`);
   }
-
-
+  
 }

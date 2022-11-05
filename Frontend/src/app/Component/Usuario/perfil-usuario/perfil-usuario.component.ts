@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
-import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
+import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -25,7 +25,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
     this.nombreUsuario = this.tokenService.getUserName();
     this.usuarioService.getUsuario(this.nombreUsuario).subscribe(dato => {
-    this.usuario = dato;
+      this.usuario = dato;
     });
 
     if (this.tokenService.getToken()) {
@@ -40,6 +40,5 @@ export class PerfilUsuarioComponent implements OnInit {
     }
 
   }
-
 
 }

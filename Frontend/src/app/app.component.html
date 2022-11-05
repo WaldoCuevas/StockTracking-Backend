@@ -1,35 +1,36 @@
 <header class="nav-container">
 
-  <h1 class="title"> <a routerLink="" routerLinkActive="active"> StockTracking </a></h1>
+    <h1 class="title"> <a routerLink="" routerLinkActive="active"> StockTracking </a></h1>
+  
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+  
+    <nav class="navbar">
+      <a *ngIf="isLogged" class="link" routerLink="lista-productos" routerLinkActive="active">Lista de Productos</a>
+      <a *ngIf="isAdmin" class="link" routerLink="registrar-producto" routerLinkActive="active">Añadir Producto</a>
+      <a *ngIf="isLogged" class="link" (click)="getUserName(nombreUsuario)" routerLink="perfil-usuario/{nombreUsuario}" 
+        routerLinkActive="active">Perfil</a>
+  
+      <div *ngIf="isLogged;else IniciarSesion">
+        <a *ngIf="isLogged" class="link" (click)="cerrarSesion()" routerLink="iniciar-sesion" routerLinkActive="active">Cerrar Sesión</a>
+      </div>
+      <ng-template #IniciarSesion >
+          <a class="link" routerLink="iniciar-sesion" routerLinkActive="active">Iniciar Sesión</a>
+      </ng-template>
+  
+    </nav>
+  </header>
+  
+  
+  <div class="container">
+    <router-outlet></router-outlet>    
+  </div>
+  
+  <footer>
+    <p class="paragraph"> Creada por:</p>
+    <a class="link" href="mailto:waldo456123@gmail.com">Waldo Cuevas</a>
+    <a class="link" href="mailto:aledalzotto15@gmail.com">Alejandro Dalzotto</a>
+  </footer>
 
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fa-solid fa-bars"></i>
-  </label>
-
-  <nav class="navbar">
-    <a *ngIf="isLogged" class="link" routerLink="lista-productos" routerLinkActive="active">Lista de Productos</a>
-    <a *ngIf="isAdmin" class="link" routerLink="registrar-producto" routerLinkActive="active">Añadir Producto</a>
-    <a *ngIf="isLogged" class="link" (click)="getUserName(nombreUsuario)" routerLink="perfil-usuario/{{nombreUsuario}}"
-      routerLinkActive="active">Perfil</a>
-
-    <div *ngIf="isLogged;else IniciarSesion">
-      <a *ngIf="isLogged" class="link" (click)="cerrarSesion()" routerLink="iniciar-sesion" routerLinkActive="active">Cerrar Sesión</a>
-    </div>
-    <ng-template #IniciarSesion >
-        <a class="link" routerLink="iniciar-sesion" routerLinkActive="active">Iniciar Sesión</a>
-    </ng-template>
-
-  </nav>
-</header>
-
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
-
-<footer>
-  <p class="paragraph"> Creada por:</p>
-  <a class="link" href="mailto:waldo456123@gmail.com">Waldo Cuevas</a>
-  <a class="link" href="mailto:aledalzotto15@gmail.com">Alejandro Dalzotto</a>
-</footer>

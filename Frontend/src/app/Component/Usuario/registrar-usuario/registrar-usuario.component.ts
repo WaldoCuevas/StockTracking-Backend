@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
-import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
+import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -58,5 +57,4 @@ export class RegistrarUsuarioComponent implements OnInit {
   onSubmit() {
     this.guardarUsuario();
   }
-
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
-import { ProductoService } from '../../../Service/Producto/producto.service';
-import { Producto } from '../../../Models/Producto/producto';
+import { Producto } from 'src/app/Models/Producto/producto';
+import { ProductoService } from 'src/app/Service/Producto/producto.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({

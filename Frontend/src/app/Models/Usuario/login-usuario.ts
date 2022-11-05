@@ -8,4 +8,5 @@ export class LoginUsuario {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
+
 }

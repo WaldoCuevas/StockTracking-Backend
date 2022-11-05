@@ -17,7 +17,8 @@ export class AppComponent {
   isLogged = false;
   roles: string[];
 
-  constructor(private router: Router, private tokenService: TokenService) { }
+  constructor(private router: Router, private tokenService: TokenService) {
+   }
 
   ngOnInit(): void {
 
@@ -28,8 +29,7 @@ export class AppComponent {
         if (rol === 'ROLE_ADMIN') {
           this.isAdmin = true;
         }
-      })
-
+      });
     }
 
   }

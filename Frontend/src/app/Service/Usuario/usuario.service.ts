@@ -30,5 +30,4 @@ export class UsuarioService {
   obtenerListaDeUsuarios(): Observable<NuevoUsuario[]> {
     return this.httpClient.get<NuevoUsuario[]>(`${this.Url + 'usuarios'}`);
   }
-
 }
