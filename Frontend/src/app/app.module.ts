@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //Utils
 import { InterceptorService } from './Utils/Interceptor/interceptor.service';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 //Productos
@@ -36,8 +36,8 @@ import { ListaUsuarioComponent } from './Component/Usuario/lista-usuario/lista-u
     ListaUsuarioComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
   ],
@@ -46,3 +46,5 @@ import { ListaUsuarioComponent } from './Component/Usuario/lista-usuario/lista-u
 }) 
 
 export class AppModule { }
+
+
