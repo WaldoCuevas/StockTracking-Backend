@@ -1,3 +1,11 @@
+.title a {
+    font-family: 'Passions Conflict', cursive;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 12px 0px;
+    color: var(--title-color);
+    background: var(--main-color);
+}
 
 .nav-container {
     display: flex;

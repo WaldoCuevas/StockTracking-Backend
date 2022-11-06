@@ -16,20 +16,28 @@ export class ListaProductoComponent implements OnInit {
 
   roles:string[];
   isAdmin = false;
+  isLogged = false;
 
   constructor(
     private productoServicio: ProductoService, private router: Router, private tokenService:TokenService) { }
 
   ngOnInit(): void {
-    this.obtenerProductos();
-    
+
     this.roles = this.tokenService.getAuthorities();
 
-    this.roles.forEach( rol => {
-      if (rol === 'ROLE_ADMIN'){
-        this.isAdmin = true;
-      }
-    })
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.roles.forEach(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+          
+        }
+      })
+
+    }
+
+    this.obtenerProductos();
+    
     
   }
 

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { interceptorProvider } from './Utils/Interceptor/Interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavBarComponent } from './Component/NavBar/nav-bar/nav-bar.component';
 
 //Import para Productos
 import { ListaProductoComponent } from './Component/Producto/lista-producto/lista-producto.component';
@@ -20,6 +21,7 @@ import { ListaUsuariosComponent } from './Component/Usuario/lista-usuarios/lista
 import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/iniciar-sesion/iniciar-sesion.component';
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
 import { RegistrarUsuarioComponent } from './Component/Usuario/registrar-usuario/registrar-usuario.component';
+import { IndexComponent } from './Component/Index/index/index.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { RegistrarUsuarioComponent } from './Component/Usuario/registrar-usuario
     IniciarSesionComponent,
     DetallesProductoComponent,
     PerfilUsuarioComponent,
+    NavBarComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

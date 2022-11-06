@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/Service/Usuario/token.service';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  usuario:NuevoUsuario;
+  usuario:NuevoUsuario = new NuevoUsuario();
   nombreUsuario:string | null;
   
   constructor(private router: ActivatedRoute, private usuarioService:UsuarioService, private tokenService:TokenService) { }

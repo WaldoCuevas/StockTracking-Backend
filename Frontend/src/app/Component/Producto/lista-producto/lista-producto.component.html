@@ -3,7 +3,7 @@
   <table>
     <thead>
       <tr>
-        <th>Nombre</th> 
+        <th>Nombre</th>
         <th>Cantidad</th>
         <th>Acciones</th>
       </tr>
@@ -17,7 +17,7 @@
         <td *ngIf="producto.estado">
           <i (click)="actualizarProducto(producto.id)" class="fa-solid fa-pen" *ngIf="isAdmin"></i>
           <i (click)="eliminarProducto(producto.id)" class="fa-solid fa-trash-can" *ngIf="isAdmin"></i>
-          <i (click)="verDetallesProducto(producto.id)" class="fa-solid fa-circle-info" ></i>
+          <i (click)="verDetallesProducto(producto.id)" class="fa-solid fa-circle-info"></i>
         </td>
       </tr>
     </tbody>

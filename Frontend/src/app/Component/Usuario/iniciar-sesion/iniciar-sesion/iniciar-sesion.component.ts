@@ -25,11 +25,13 @@ export class IniciarSesionComponent implements OnInit {
   constructor(private router: Router, private tokenService: TokenService, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFalse = false;
       this.roles = this.tokenService.getAuthorities();
     }
+    
   }
 
   verificacion() {
@@ -48,7 +50,7 @@ export class IniciarSesionComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.router.navigate(['/lista-productos']);
+        this.router.navigate(['/index']);
       }, error: err => {
         this.isLogged = false;
         this.isLoginFalse = true;

@@ -1,31 +1,12 @@
-<header class="nav-container">
+<header>
 
-  <h1 class="title"> <a routerLink="" routerLinkActive="active"> StockTracking </a></h1>
+  <app-nav-bar class="nav-container"></app-nav-bar>
 
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fa-solid fa-bars"></i>
-  </label>
-
-  <nav class="navbar">
-    <a *ngIf="isLogged" class="link" routerLink="lista-productos" routerLinkActive="active">Lista de Productos</a>
-    <a *ngIf="isAdmin" class="link" routerLink="registrar-producto" routerLinkActive="active">Añadir Producto</a>
-    <a *ngIf="isLogged" class="link" (click)="getUserName(nombreUsuario)" routerLink="perfil-usuario/{nombreUsuario}" 
-      routerLinkActive="active">Perfil</a>
-
-    <div *ngIf="isLogged;else IniciarSesion">
-      <a *ngIf="isLogged" class="link" (click)="cerrarSesion()" routerLink="iniciar-sesion" routerLinkActive="active">Cerrar Sesión</a>
-    </div>
-    <ng-template #IniciarSesion >
-        <a class="link" routerLink="iniciar-sesion" routerLinkActive="active">Iniciar Sesión</a>
-    </ng-template>
-
-  </nav>
 </header>
 
 
 <div class="container">
-  <router-outlet></router-outlet>    
+  <router-outlet></router-outlet>
 </div>
 
 <footer>

@@ -13,11 +13,12 @@ import { RegistrarProductoComponent } from './Component/Producto/registrar-produ
 import { DetallesProductoComponent } from './Component/Producto/detalles-producto/detalles-producto.component';
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
 import { UserGuardGuard } from './Utils/Guard/user-guard.guard';
+import { IndexComponent } from './Component/Index/index/index.component';
 
 const routes: Routes = [
 
-  //Menu principal
-  { path: '', component: IniciarSesionComponent, pathMatch: "full" },
+  { path: 'index', pathMatch: "full", component: IndexComponent },
+
 
   //Rutas para usuarios
   { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
