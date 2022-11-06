@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
+import { JwtInterceptorInterceptor } from './Interceptor.service';
 
 describe('JwtInterceptorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({

@@ -1,4 +1,4 @@
-.title {
+.title a {
     font-family: 'Passions Conflict', cursive;
     font-size: 1.5em;
     margin: 0;
@@ -146,7 +146,7 @@ footer {
         margin-left: 30px;
     }
 
-    .title {
+    .title  {
         font-size: 3.5em;
         letter-spacing: 4px;
     }

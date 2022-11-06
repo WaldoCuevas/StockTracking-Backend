@@ -23,7 +23,6 @@ export class ListaProductoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerProductos();
     
-<<<<<<< Updated upstream
     this.roles = this.tokenService.getAuthorities();
 
     this.roles.forEach( rol => {
@@ -32,8 +31,6 @@ export class ListaProductoComponent implements OnInit {
       }
     })
     
-=======
->>>>>>> Stashed changes
   }
 
   actualizarProducto(id:number){

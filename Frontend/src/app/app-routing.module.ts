@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'iniciar-sesion', component: IniciarSesionComponent },
-<<<<<<< Updated upstream
   { path: 'perfil-usuario/:string', component: PerfilUsuarioComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
 
   //rutas para productos
@@ -31,11 +30,6 @@ const routes: Routes = [
   { path: 'lista-productos', component: ListaProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
   { path: 'actualizar-producto/:id', component: ModificarProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin'] } },
   { path: 'detalles-producto/:id', component: DetallesProductoComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
-=======
-  { path: 'perfil-usuario/:string', component: PerfilUsuarioComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
-  { path: 'lista-usuarios', component: ListaUsuarioComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
->>>>>>> Stashed changes
-
 
 ];
 
