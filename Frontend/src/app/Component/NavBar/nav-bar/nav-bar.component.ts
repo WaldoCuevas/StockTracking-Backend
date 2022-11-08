@@ -18,7 +18,9 @@ export class NavBarComponent implements OnInit {
   constructor(private tokenService: TokenService, private router:Router) { }
 
   ngOnInit(): void {
+  }
 
+  public isLogin(): boolean {
     this.roles = this.tokenService.getAuthorities();
 
     if (this.tokenService.getToken()) {
@@ -28,9 +30,9 @@ export class NavBarComponent implements OnInit {
           this.isAdmin = true;
         }
       })
-
+      return true;
     }
-
+    return false;
   }
 
   public getUserName(nombreUsuario: string | null): void {
@@ -41,8 +43,9 @@ export class NavBarComponent implements OnInit {
 
   cerrarSesion(): void {
     this.tokenService.logOut();
-    this.router.navigate(['/']);
-    window.location.reload(); 
+    this.isLogged = false;
+    this.isAdmin = false;
+    this.router.navigate(['/index']);
   }
 
 }

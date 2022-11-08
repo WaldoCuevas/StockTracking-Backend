@@ -21,7 +21,7 @@ const routes: Routes = [
 
 
   //Rutas para usuarios
-  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin'] } },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'iniciar-sesion', component: IniciarSesionComponent },
   { path: 'perfil-usuario/:string', component: PerfilUsuarioComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin', 'user'] } },
