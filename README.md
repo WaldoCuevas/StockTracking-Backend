@@ -23,6 +23,7 @@ Tecnologias usadas:
 
 Pre-Requesitos:
 Para correr esta aplicacion necesitaras tener instalado:
+
 Backend:
   * Maven
   * Java
