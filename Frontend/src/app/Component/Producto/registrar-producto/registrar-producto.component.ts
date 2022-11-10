@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoService } from '../../../Service/Producto/producto.service';
 import { Producto, Unidad, Categoria } from '../../../Models/Producto/producto';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrar-producto',
@@ -16,7 +17,9 @@ export class RegistrarProductoComponent implements OnInit {
   unidades: Unidad[];
   categorias: Categoria[];
 
-  constructor(private servicio: ProductoService, private router: Router) { }
+  constructor(private servicio: ProductoService,
+    private router: Router,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.obtenerUnidades();
@@ -33,14 +36,13 @@ export class RegistrarProductoComponent implements OnInit {
   obtenerCategorias() {
     this.servicio.obtenerCategorias().subscribe(dato => {
       this.categorias = dato;
-      console.log(this.categorias);
     })
   }
 
 
   guardarProducto() {
     this.servicio.registrarProducto(this.producto).subscribe(dato => {
-      console.log(dato);
+      this.toastrService.success("Producto guardado con exito!", "StockTracking", {timeOut:5000});
       this.irALaListaDeProductos();
     });
   }

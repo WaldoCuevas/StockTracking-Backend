@@ -16,9 +16,7 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-
-    this.roles = this.tokenService.getAuthorities();
+  this.roles = this.tokenService.getAuthorities();
 
     if (this.tokenService.getToken()) {
       this.isLogged = true,

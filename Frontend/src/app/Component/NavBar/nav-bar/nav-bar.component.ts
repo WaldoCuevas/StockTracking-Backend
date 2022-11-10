@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class NavBarComponent implements OnInit {
 
   nombreUsuario: string | null;
 
-  constructor(private tokenService: TokenService, private router:Router) { }
+  constructor(private tokenService: TokenService, 
+    private router:Router,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +40,6 @@ export class NavBarComponent implements OnInit {
 
   public getUserName(nombreUsuario: string | null): void {
     this.nombreUsuario = this.tokenService.getUserName();
-    console.log(this.nombreUsuario);
     this.router.navigate(['perfil-usuario', this.nombreUsuario]);
   }
 
@@ -45,6 +47,7 @@ export class NavBarComponent implements OnInit {
     this.tokenService.logOut();
     this.isLogged = false;
     this.isAdmin = false;
+    this.toastrService.success("Cuenta cerrada","StockTracking", { timeOut:3000 })
     this.router.navigate(['/index']);
   }
 

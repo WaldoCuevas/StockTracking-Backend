@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/Models/Usuario/login-usuario';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -12,7 +13,6 @@ import { TokenService } from 'src/app/Service/Usuario/token.service';
 export class IniciarSesionComponent implements OnInit {
 
   isLogged = false;
-  isLoginFalse = false;
   loginUsuario: LoginUsuario;
 
   nombreUsuario: string;
@@ -22,42 +22,35 @@ export class IniciarSesionComponent implements OnInit {
 
   roles: string[] = [];
 
-  constructor(private router: Router, private tokenService: TokenService, private usuarioService: UsuarioService) { }
+  constructor(private router: Router, 
+    private tokenService: TokenService, 
+    private usuarioService: UsuarioService,
+    private toastrService:ToastrService) { }
 
   ngOnInit() {
 
     if (this.tokenService.getToken()) {
       this.isLogged = true;
-      this.isLoginFalse = false;
       this.roles = this.tokenService.getAuthorities();
     }
     
   }
 
-  verificacion() {
-
-  }
 
   //onLogin
   iniciarSesion() {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.usuarioService.login(this.loginUsuario).subscribe({
       next: (data) => {
-        this.isLogged = true;
-        this.isLoginFalse = false;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
+        this.toastrService.success("Usuario logueado con exito","StockTracking", {timeOut:3000})
         this.router.navigate(['/index']);
       }, error: err => {
         this.isLogged = false;
-        this.isLoginFalse = true;
-        this.errMsj = err.error.mensaje;
-        console.log(this.errMsj);
-        console.log(this.nombreUsuario);
-        console.log(this.password);
+        this.toastrService.error("Error al iniciar Sesión","StockTracking", {timeOut:3000})
       }
     });
   }

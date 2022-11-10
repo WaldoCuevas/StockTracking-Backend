@@ -9,6 +9,8 @@ import { interceptorProvider } from './Utils/Interceptor/Interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavBarComponent } from './Component/NavBar/nav-bar/nav-bar.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Import para Productos
 import { ListaProductoComponent } from './Component/Producto/lista-producto/lista-producto.component';
@@ -42,8 +44,14 @@ import { IndexComponent } from './Component/Index/index/index.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    })
   ],
-  providers: [ interceptorProvider ],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

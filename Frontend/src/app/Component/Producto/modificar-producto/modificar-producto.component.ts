@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../../../Service/Producto/producto.service';
 import { Producto, Categoria, Unidad } from '../../../Models/Producto/producto';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-modificar-producto',
@@ -17,7 +18,10 @@ export class ModificarProductoComponent implements OnInit {
   unidades: Unidad[];
   categorias: Categoria[];
 
-  constructor(private servicio: ProductoService, private router:Router, private route:ActivatedRoute) { }
+  constructor(private servicio: ProductoService, 
+    private router:Router,
+    private route:ActivatedRoute,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -36,6 +40,7 @@ export class ModificarProductoComponent implements OnInit {
 
   onSubmit(){
     this.servicio.actualizarProducto(this.id,this.producto).subscribe(dato=>{
+      this.toastrService.success("Producto modificado con exito", "StockTracking", {timeOut:5000});
       this.irALaListaDeProducto();
     })
   }
@@ -43,14 +48,12 @@ export class ModificarProductoComponent implements OnInit {
   obtenerUnidades() {
     this.servicio.obtenerUnidades().subscribe(dato => {
       this.unidades = dato;
-      console.log(this.unidades);
     })
   }
 
   obtenerCategorias() {
     this.servicio.obtenerCategorias().subscribe(dato => {
       this.categorias = dato;
-      console.log(this.categorias);
     })
   }
 

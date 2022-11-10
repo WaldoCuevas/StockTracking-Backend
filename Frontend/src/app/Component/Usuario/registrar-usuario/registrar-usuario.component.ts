@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 import { TokenService } from 'src/app/Service/Usuario/token.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -18,7 +19,8 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   constructor(private tokenService: TokenService,
     private usuarioService: UsuarioService,
-    private router: Router) { }
+    private router: Router,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -33,12 +35,11 @@ export class RegistrarUsuarioComponent implements OnInit {
     this.usuarioService.nuevo(this.usuario).subscribe(
       {
         next: (data) => {
-          alert('Cuenta creada xd');
-          console.log(data);
+          this.toastrService.success("Cuenta creada con exito!", "StockTracking", {timeOut:5000});
           this.goToListaUsuarios();
 
         }, error: (err) => {
-          console.log('Error al crear la cuenta', err)
+          this.toastrService.error("Error al crear la cuenta, intente nuevamente", "StockTracking", {timeOut:5000});
         }
       });
   }
