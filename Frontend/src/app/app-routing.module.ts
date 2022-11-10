@@ -18,6 +18,7 @@ import { IndexComponent } from './Component/Index/index/index.component';
 const routes: Routes = [
 
   { path: 'index', pathMatch: "full", component: IndexComponent },
+  { path: '', pathMatch: 'full', component: IndexComponent },
 
 
   //Rutas para usuarios

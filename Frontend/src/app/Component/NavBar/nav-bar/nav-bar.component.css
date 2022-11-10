@@ -1,8 +1,12 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title a {
     font-family: 'Passions Conflict', cursive;
-    font-size: 1.5em;
-    margin: 0;
-    padding: 12px 0px;
+    font-size: 0.6em;
     color: var(--title-color);
     background: var(--main-color);
 }
@@ -17,7 +21,7 @@
     right: 0;
     left: 0;
     top: 0;
-    z-index: 99999;
+    z-index: 9;
 }
 
 .navbar {
@@ -97,12 +101,6 @@ footer {
     justify-content: center;
 }
 
-@media(min-width:820px) {
-    .title {
-        font-size: 3em;
-    }
-}
-
 @media(min-width:850px) {
     .nav-container {
         flex-direction: row;
@@ -146,8 +144,8 @@ footer {
         margin-left: 30px;
     }
 
-    .title  {
-        font-size: 3.5em;
+    .title a {
+        font-size: 1em;
         letter-spacing: 4px;
     }
 }
