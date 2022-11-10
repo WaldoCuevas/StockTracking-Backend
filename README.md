@@ -32,6 +32,7 @@ Backend:
   * JWT Dependency
   * JPA Dependency
   * Oath 2.0 Dependency
+
 Front:
   * Node
   * Angular CLI
