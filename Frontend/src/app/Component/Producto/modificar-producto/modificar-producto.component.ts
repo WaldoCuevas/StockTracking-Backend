@@ -29,8 +29,14 @@ export class ModificarProductoComponent implements OnInit {
     this.obtenerUnidades();
 
     this.id = this.route.snapshot.params['id'];
-    this.servicio.obtenerProductoPorId(this.id).subscribe(dato =>{
-      this.producto = dato;
+    this.servicio.obtenerProductoPorId(this.id).subscribe({
+      next: (dato) => {
+        this.producto = dato;
+      },
+      error: (err) => {
+        this.router.navigate(['/not-found']);
+      },
+      
     });
   }
 

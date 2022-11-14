@@ -24,6 +24,7 @@ import { IniciarSesionComponent } from './Component/Usuario/iniciar-sesion/inici
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
 import { RegistrarUsuarioComponent } from './Component/Usuario/registrar-usuario/registrar-usuario.component';
 import { IndexComponent } from './Component/Index/index/index.component';
+import { NotFoundComponent } from './Component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { IndexComponent } from './Component/Index/index/index.component';
     PerfilUsuarioComponent,
     NavBarComponent,
     IndexComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,12 +14,13 @@ import { DetallesProductoComponent } from './Component/Producto/detalles-product
 import { PerfilUsuarioComponent } from './Component/Usuario/perfil-usuario/perfil-usuario.component';
 import { UserGuardGuard } from './Utils/Guard/user-guard.guard';
 import { IndexComponent } from './Component/Index/index/index.component';
+import { NotFoundComponent } from './Component/not-found/not-found.component';
 
 const routes: Routes = [
 
   { path: 'index', pathMatch: "full", component: IndexComponent },
   { path: '', pathMatch: 'full', component: IndexComponent },
-
+  { path: 'not-found', component: NotFoundComponent },
 
   //Rutas para usuarios
   { path: 'lista-usuarios', component: ListaUsuariosComponent, canActivate: [UserGuardGuard], data: { expectedRol: ['admin'] } },
