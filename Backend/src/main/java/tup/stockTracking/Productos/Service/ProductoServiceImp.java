@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tup.stockTracking.Exceptions.ResourceNotFoundException;
 import tup.stockTracking.Productos.Models.Categoria;
 import tup.stockTracking.Productos.Models.Producto;
 import tup.stockTracking.Productos.Models.Unidad;
 import tup.stockTracking.Productos.Repository.CategoriaRepository;
 import tup.stockTracking.Productos.Repository.ProductoRepository;
 import tup.stockTracking.Productos.Repository.UnidadRepository;
+import tup.stockTracking.Utils.Exceptions.ResourceNotFoundException;
 
 @Service
 public class ProductoServiceImp implements ProductoService {

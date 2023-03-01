@@ -11,16 +11,25 @@ import { TokenService } from 'src/app/Service/Usuario/token.service';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  usuario:NuevoUsuario = new NuevoUsuario();
-  nombreUsuario:string | null;
-  
-  constructor(private router: ActivatedRoute, private usuarioService:UsuarioService, private tokenService:TokenService) { }
+  usuario: NuevoUsuario = new NuevoUsuario();
+  nombreUsuario: string | null;
+
+  constructor(private router: ActivatedRoute,
+    private usuarioService: UsuarioService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.nombreUsuario = this.tokenService.getUserName();
-    this.usuarioService.getUsuario(this.nombreUsuario).subscribe( dato => {
-      this.usuario = dato;
-    });
+    
+    this.usuarioService.getUsuario(this.nombreUsuario).subscribe(
+      {
+        next: (dato) => {
+          this.usuario = dato;
+        }, error: (err) => {
+          alert(err);
+        },
+      });
   }
 
 

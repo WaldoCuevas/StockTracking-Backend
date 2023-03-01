@@ -12,10 +12,12 @@ import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
 })
 export class ListaUsuariosComponent implements OnInit {
 
-  usuarios:NuevoUsuario[];
+  usuarios: NuevoUsuario[];
   isAdmin = false;
 
-  constructor(private tokenService:TokenService, private usuarioService:UsuarioService ) { }
+  constructor(private tokenService: TokenService,
+    private usuarioService: UsuarioService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -27,8 +29,12 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   private getUsers() {
-    this.usuarioService.obtenerListaDeUsuarios().subscribe(data => {
-      this.usuarios = data;
+    this.usuarioService.obtenerListaDeUsuarios().subscribe({
+      next: (data) => {
+        this.usuarios = data;
+      }, error: (err) => {
+        this.router.navigate(['/not-found']);
+      },
     });
   }
 

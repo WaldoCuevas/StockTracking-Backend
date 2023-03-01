@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/Models/Usuario/login-usuario';
 import { UsuarioService } from 'src/app/Service/Usuario/usuario.service';
@@ -12,20 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class IniciarSesionComponent implements OnInit {
 
-  isLogged = false;
+  isLogged:Boolean;
   loginUsuario: LoginUsuario;
 
   nombreUsuario: string;
   password: string
 
-  errMsj:string;
+  errMsj: string;
 
   roles: string[] = [];
 
-  constructor(private router: Router, 
-    private tokenService: TokenService, 
+  constructor(private router: Router,
+    private tokenService: TokenService,
     private usuarioService: UsuarioService,
-    private toastrService:ToastrService) { }
+    private toastrService: ToastrService) { }
+
 
   ngOnInit() {
 
@@ -33,9 +34,8 @@ export class IniciarSesionComponent implements OnInit {
       this.isLogged = true;
       this.roles = this.tokenService.getAuthorities();
     }
-    
-  }
 
+  }
 
   //onLogin
   iniciarSesion() {
@@ -46,11 +46,11 @@ export class IniciarSesionComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.toastrService.success("Usuario logueado con exito","StockTracking", {timeOut:3000})
+        this.toastrService.success("Usuario logueado con exito", "StockTracking", { timeOut: 3000 })
         this.router.navigate(['/index']);
       }, error: err => {
         this.isLogged = false;
-        this.toastrService.error("Error al iniciar Sesión","StockTracking", {timeOut:3000})
+        this.toastrService.error("Error al iniciar Sesión", "StockTracking", { timeOut: 3000 })
       }
     });
   }
@@ -59,5 +59,7 @@ export class IniciarSesionComponent implements OnInit {
   irAlPerfil(id: any) {
     this.router.navigate(['perfil-usuario', id]);
   }
+
+
 
 }

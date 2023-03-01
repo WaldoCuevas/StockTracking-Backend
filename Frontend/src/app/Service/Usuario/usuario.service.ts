@@ -10,25 +10,26 @@ import { NuevoUsuario } from 'src/app/Models/Usuario/nuevo-usuario';
 })
 export class UsuarioService {
 
-  Url = 'http://localhost:8080/auth/';
+  UrlAuth = 'http://localhost:8080/auth/';
+  UrlUsuario = 'http://localhost:8080/usuario/';
 
   constructor(private httpClient: HttpClient) { }
 
   nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(`${this.Url + 'nuevo'}`, nuevoUsuario);
+    return this.httpClient.post<any>(`${this.UrlAuth + 'nuevo'}`, nuevoUsuario);
   }
 
   login(loginUsuario: LoginUsuario): Observable<JWTDTO> {
-    return this.httpClient.post<JWTDTO>(`${this.Url + 'login'}`, loginUsuario);
+    return this.httpClient.post<JWTDTO>(`${this.UrlAuth + 'login'}`, loginUsuario);
   }
 
   getUsuario(nombreUsuario: String | null): Observable<NuevoUsuario> {
-    return this.httpClient.get<NuevoUsuario>(`${this.Url + 'usuario'}/${nombreUsuario}`);
+    return this.httpClient.get<NuevoUsuario>(`${this.UrlUsuario + 'usuario'}/${nombreUsuario}`);
   }
 
   //Metodo para obtener todos los productos
   obtenerListaDeUsuarios(): Observable<NuevoUsuario[]> {
-    return this.httpClient.get<NuevoUsuario[]>(`${this.Url + 'usuarios'}`);
+    return this.httpClient.get<NuevoUsuario[]>(`${this.UrlUsuario + 'usuarios'}`);
   }
 
 }
